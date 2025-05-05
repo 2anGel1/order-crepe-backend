@@ -94,7 +94,7 @@ app.get('/admin/check-auth', checkAdminSession, (req, res) => {
   res.json({ authenticated: true });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
