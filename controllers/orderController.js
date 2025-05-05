@@ -37,16 +37,16 @@ const orderController = (Order) => ({
       });
 
       // Send initial WhatsApp notification
-      try {
-        await whatsappService.sendStatusUpdateMessage(
-          order.customerContact,
-          order.reference,
-          'processing'
-        );
-      } catch (whatsappError) {
-        console.error('WhatsApp notification failed:', whatsappError);
-        // Don't fail the request if WhatsApp fails
-      }
+      // try {
+      //   await whatsappService.sendStatusUpdateMessage(
+      //     order.customerContact,
+      //     order.reference,
+      //     'processing'
+      //   );
+      // } catch (whatsappError) {
+      //   console.error('WhatsApp notification failed:', whatsappError);
+      //   // Don't fail the request if WhatsApp fails
+      // }
 
       res.json(order);
     } catch (error) {

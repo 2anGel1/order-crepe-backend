@@ -3,20 +3,20 @@ const { Sequelize } = require('sequelize');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
-const orderController = require('./controllers/orderController');
+// const orderController = require('../controllers/orderController');
 // const whatsappService = require('./services/whatsapp');
 
 const app = express();
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: path.join(__dirname, 'database.sqlite')
+  storage: path.join(__dirname, '../database.sqlite')
 });
 
 // Initialize Order model
-const Order = require('./models/Order')(sequelize);
+const Order = require('../models/Order')(sequelize);
 
 // Initialize controllers with models
-const orderControllerWithModel = require('./controllers/orderController')(Order);
+const orderControllerWithModel = require('../controllers/orderController')(Order);
 
 // Middleware
 app.use(cors({
@@ -98,7 +98,9 @@ app.get('/', (req, res) => {
   res.send('This is a GET API');
 });
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
